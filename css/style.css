@@ -10,7 +10,7 @@ body {
 .wrapper {
   max-width: 1060px;
   margin: 0 auto;
-  padding-bottom: 196px;
+  /* padding-bottom: 196px; */
 }
 
 .wrapper-full {
@@ -51,11 +51,19 @@ body {
 
 /* Header start */
 
-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  transition: 0.2s;
+  padding-bottom: 20px;
+}
+
+.header-active {
+  background-color: #0e1d28;
+  transition: 0.4s linear;
+  z-index: 5;
 }
 
 .header__wrapper {
@@ -98,7 +106,6 @@ header {
 /* intro start */
 
 .intro-bg {
-  /* min-height: 1015px; */
   min-height: 100%;
   background: url("../media/intro-bg.jpg");
   background-size: cover;
@@ -124,6 +131,10 @@ header {
   color: #ffffff;
   max-width: 546px;
   margin-bottom: 59px;
+}
+
+.search-form {
+  padding-bottom: 196px;
 }
 
 .search-form__info {
