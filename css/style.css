@@ -138,9 +138,9 @@ body {
 
 .intro-bg {
   min-height: 100%;
-  background: url("../media/intro-bg.jpg");
+  background: url("../media/intro-bg.jpg") no-repeat center;
   background-size: cover;
-  background-position: 0 0;
+  /* background-position: 0 0; */
   padding-top: 263px;
   padding-bottom: 223px;
 }
@@ -166,6 +166,11 @@ body {
 
 .search-form {
   padding-bottom: 196px;
+}
+
+.search-form__wrap {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .search-form__info {
@@ -202,6 +207,7 @@ body {
   color: #ffffff;
   background-color: #1b7dff;
   border: 0;
+  cursor: pointer;
 }
 
 .search-form__submit:hover,
@@ -339,8 +345,9 @@ body {
 
 .places__card-img {
   transition: 0.2s;
-  height: 100%;
-  max-width: fit-content;
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
 }
 
 .big {
@@ -424,13 +431,15 @@ body {
 
 .visit__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 57px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 57px;
+  grid-row-gap: 57px;
   align-items: center;
   margin-bottom: 77px;
 }
 
 .visit__card {
+  grid-column: span 2;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -439,6 +448,10 @@ body {
 .visit__card-figure {
   position: relative;
   margin-bottom: 45px;
+  overflow: hidden;
+}
+.visit__card-img {
+  width: 100%;
 }
 
 .visit__card-stats {
@@ -511,7 +524,7 @@ body {
 }
 
 .video-item {
-  padding-top: 56.25%;
+  padding-top: 56.27%;
 }
 
 .video-iframe {
@@ -538,6 +551,7 @@ body {
 
 .footer__logo {
   width: 50%;
+  margin-bottom: 30px;
 }
 
 .footer__nav {
@@ -545,6 +559,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.footer__menu {
+  display: inline-block;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.footer__menu:last-child {
+  margin-right: 0;
 }
 
 .footer__menu-title {
@@ -571,7 +595,74 @@ body {
 
 /* media start */
 
+@media (max-width: 960px) {
+  .search-form__field {
+    background-position: left 1px;
+    margin-bottom: 30px;
+  }
+
+  .benefits {
+    margin-bottom: 60px;
+  }
+
+  .benefits__title {
+    padding: 55px 15px;
+  }
+
+  .benefits__cards {
+    padding: 0 15px;
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;
+  }
+
+  .big {
+    grid-column: span 6;
+  }
+
+  .small {
+    grid-column: span 6;
+  }
+
+  .tours__tour {
+    grid-column-gap: 35px;
+    margin-bottom: 35px;
+  }
+
+  .tour__info {
+    padding-left: 0;
+  }
+
+  .tour__title {
+    margin-bottom: 15px;
+  }
+
+  .tour__info-text {
+    margin-bottom: 15px;
+  }
+
+  .visit__cards {
+    grid-column-gap: 25px;
+    grid-row-gap: 55px;
+  }
+
+  .visit__card {
+    grid-column: span 3;
+  }
+
+  .footer__menu {
+    margin-right: 20px;
+  }
+}
+
 @media screen and (max-width: 767px) {
+  .section-title {
+    margin-bottom: 25px;
+  }
+
+  .section-title::after {
+    width: 78px;
+  }
+
   .header__burger {
     display: block;
     cursor: pointer;
@@ -581,6 +672,7 @@ body {
     position: fixed;
     transform: translateX(-100%);
     width: 40%;
+    min-width: 250px;
     height: 100%;
     top: 0;
     left: 0;
@@ -655,6 +747,87 @@ body {
 
   .header__nav-close-line:last-child {
     transform: translateY(50%) rotate(-45deg);
+  }
+
+  .intro-bg {
+    padding-top: 157px;
+    padding-bottom: 35px;
+  }
+
+  .search-form__field {
+    margin-right: 20px;
+    padding-bottom: 12px;
+    font-size: 16px;
+    background-position: left 1px;
+  }
+
+  .search-form__field::placeholder {
+    font-size: 16px;
+  }
+
+  .search-form__button {
+    width: 100%;
+  }
+
+  .search-form__submit {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .benefits__card {
+    grid-column: span 3;
+    margin-bottom: 30px;
+  }
+
+  .benefits__card-desc {
+    margin-bottom: 10px;
+  }
+
+  .benefits__card-img {
+    margin-bottom: 30px;
+  }
+
+  .places {
+    margin-bottom: 76px;
+  }
+
+  .tours {
+    margin-bottom: 76px;
+  }
+
+  .tours__tour {
+    margin-bottom: 54px;
+  }
+
+  .tour__figure,
+  .tour__info {
+    grid-column: span 2;
+  }
+
+  .tour__title {
+    margin-top: 10px;
+  }
+
+  .tour__figure {
+    grid-row-start: -1;
+  }
+
+  .footer {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .visit__card {
+    grid-column: span 6;
+  }
+
+  .visit__card-figure {
+    margin-bottom: 20px;
+  }
+
+  .visit__card-desc {
+    margin-bottom: 10px;
   }
 }
 
